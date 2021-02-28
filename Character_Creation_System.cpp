@@ -101,22 +101,22 @@ int main(){
             cout << "Base attack : "; cin >> base_attack;
             stat_sum += base_attack;
             if(max_stat_sum - stat_sum <= 0) break;
-            cout << "You have " << max_stat_sum - stat_sum << "more points to use" << endl;
+            cout << "You have " << max_stat_sum - stat_sum << " more points to use" << endl;
             cout << "Strong attack : "; cin >> strong_attack;
             stat_sum += strong_attack;
             if(max_stat_sum - stat_sum <= 0) break;
-            cout << "You have " << max_stat_sum - stat_sum << "more points to use" << endl;
+            cout << "You have " << max_stat_sum - stat_sum << " more points to use" << endl;
             cout << "Backstub attack :"; cin >> backstub;
             stat_sum += backstub;
             if(max_stat_sum - stat_sum <= 0) break;
-            cout << "You have " << max_stat_sum - stat_sum << "more points to use" << endl;
+            cout << "You have " << max_stat_sum - stat_sum << " more points to use" << endl;
             cout << "Inteligence : "; cin >> inteligence;
             stat_sum += inteligence;
             if(max_stat_sum - stat_sum <= 0) break;
-            cout << "You have " << max_stat_sum - stat_sum << "more points to use" << endl;
+            cout << "You have " << max_stat_sum - stat_sum << " more points to use" << endl;
             cout << "Archery skill : "; cin >> archery;
             if(max_stat_sum - stat_sum <= 0) break;
-            cout << "You have " << max_stat_sum - stat_sum << "more points to use" << endl;
+            cout << "You have " << max_stat_sum - stat_sum << " more points to use" << endl;
             do{
                 cout << "1. for making changes to the attributes" << endl;
                 cout << "2. for character finalisation" << endl;
