@@ -27,9 +27,6 @@ class fighting_models {
         archery = pArch; 
         range = round(30/100 * archery);
     }
-    void model_printing(){
-        
-    }
 };
 
 int main(){
