@@ -15,10 +15,22 @@ class fighting_models {
         int simple_magic_attack_damage {}; 
         int special_magic_attack_damage {};
         int archery {}; 
-        int range {};         
+        int range {};
+    void models_stats(string pname, int pBas, int pSas, int pBack, int pInt, int pSmd, int pSpecialM, int pArch){
+        name = pname;
+        base_attack_strength = pBas;
+        strong_attack_strength = pSas;
+        backstub_attack = pBack;
+        inteligence = pInt;
+        simple_magic_attack_damage = pSmd; 
+        special_magic_attack_damage = pSpecialM;
+        archery = pArch; 
+        range = round(30/100 * archery);
+    }
+    void model_printing(){
+        
+    }
 };
-
-
 
 int main(){
     int i = character_selection();
@@ -27,118 +39,71 @@ int main(){
     cin >> characters_name;    
 
     fighting_models def;
-    if(i == 0){
-        def.name = characters_name;
-        def.base_attack_strength = 1;
-        def.strong_attack_strength = 1;
-        def.backstub_attack = 1;
-        def.inteligence = 1;
-        def.simple_magic_attack_damage = 1;
-        def.special_magic_attack_damage = 1;
-        def.archery = 1;
-        def.range =  round(30/100 * def.archery);
-    }
+    if(i == 0)
+        def.models_stats(characters_name, 1, 1, 1, 1, 1, 1, 1);
 
     fighting_models warrior;
-    if(i == 1){
-        warrior.name = characters_name;
-        warrior.base_attack_strength = 10;
-        warrior.strong_attack_strength = 20;
-        warrior.backstub_attack = 30;
-        warrior.inteligence = 0;
-        warrior.simple_magic_attack_damage = 0;
-        warrior.special_magic_attack_damage = 0;
-        warrior.archery = 2;
-        warrior.range =  round(30/100 * warrior.archery);
-    }
-
+    if(i == 1)
+        warrior.models_stats(characters_name, 10, 20, 30, 0, 0, 0, 2);
+        
     fighting_models wizard;
-    if(i == 2){    
-        wizard.name = characters_name;
-        wizard.base_attack_strength = 3;
-        wizard.strong_attack_strength = 7;
-        wizard.backstub_attack = 10;
-        wizard.inteligence = 35;
-        wizard.simple_magic_attack_damage = 30;
-        wizard.special_magic_attack_damage = 40;
-        wizard.archery = 12;
-        wizard.range =  round(30/100 * wizard.archery);
-    }
-
+    if(i == 2) 
+        wizard.models_stats(characters_name, 3, 7, 10, 35, 30, 40, 12);
+        
     fighting_models assassin;
-    if(i == 3){
-        assassin.name = characters_name;
-        assassin.base_attack_strength = 12;
-        assassin.strong_attack_strength = 23;
-        assassin.backstub_attack = 35;
-        assassin.inteligence = 10;
-        assassin.simple_magic_attack_damage = 5;
-        assassin.special_magic_attack_damage = 15;
-        assassin.archery = 8;
-        assassin.range =  round(30/100 * assassin.archery);
-    }
+    if(i == 3)
+        assassin.models_stats(characters_name, 12, 23, 35, 10, 5, 15, 8);
     
     fighting_models archer;
-    if(i == 4){
-        archer.name = characters_name;
-        archer.base_attack_strength = 7;
-        archer.strong_attack_strength = 9;
-        archer.backstub_attack = 11;
-        archer.inteligence = 15;
-        archer.simple_magic_attack_damage = 7;
-        archer.special_magic_attack_damage = 16;
-        archer.archery = 36;
-        archer.archery = 18;
-    }
+    if(i == 4)
+        archer.models_stats(characters_name, 7, 9, 11, 15, 7, 16, 36); 
 
     fighting_models players_choise;
     if(i == 5){
         int stat_sum = 0, max_stat_sum = 100, add_another = 1;
         players_choise.name = characters_name;
-        int base_attack = 0, strong_attack = 0, backstub = 0, inteligence = 0, archery = 0;
-        do{
+        int base_attack = 0, strong_attack = 0, backstub = 0, inteligence = 0, archery = 0, simple_magic_attack_damage, special_magic_attack_damage;
+        int range;
+        while(stat_sum <= max_stat_sum && max_stat_sum - stat_sum > 0 && add_another == 1){
             cout << "\nYou have " << max_stat_sum - stat_sum << " available stat points for " << players_choise.name << "'s creation" << endl;
             cout << "Base attack : "; cin >> base_attack;
             stat_sum += base_attack;
-            if(max_stat_sum - stat_sum <= 0) break;
-            cout << "You have " << max_stat_sum - stat_sum << " more points to use" << endl;
+            if(max_stat_sum - stat_sum == 0) break;
+            cout << "You have " << max_stat_sum - stat_sum << "more points to use" << endl;
             cout << "Strong attack : "; cin >> strong_attack;
             stat_sum += strong_attack;
-            if(max_stat_sum - stat_sum <= 0) break;
-            cout << "You have " << max_stat_sum - stat_sum << " more points to use" << endl;
+            if(max_stat_sum - stat_sum == 0) break;
+            cout << "You have " << max_stat_sum - stat_sum << "more points to use" << endl;
             cout << "Backstub attack :"; cin >> backstub;
             stat_sum += backstub;
-            if(max_stat_sum - stat_sum <= 0) break;
-            cout << "You have " << max_stat_sum - stat_sum << " more points to use" << endl;
+            if(max_stat_sum - stat_sum == 0) break;
+            cout << "You have " << max_stat_sum - stat_sum << "more points to use" << endl;
             cout << "Inteligence : "; cin >> inteligence;
             stat_sum += inteligence;
-            if(max_stat_sum - stat_sum <= 0) break;
-            cout << "You have " << max_stat_sum - stat_sum << " more points to use" << endl;
+            if(max_stat_sum - stat_sum == 0) break;
+            cout << "You have " << max_stat_sum - stat_sum << "more points to use" << endl;
             cout << "Archery skill : "; cin >> archery;
-            if(max_stat_sum - stat_sum <= 0) break;
-            cout << "You have " << max_stat_sum - stat_sum << " more points to use" << endl;
+            if(max_stat_sum - stat_sum == 0) break;
+            cout << "You have " << max_stat_sum - stat_sum << "more points to use" << endl;
             do{
                 cout << "1. for making changes to the attributes" << endl;
                 cout << "2. for character finalisation" << endl;
                 cout << "Do you want to make further changes to your attributes : "; cin >> add_another; 
             }while(add_another != 1 || add_another != 2);
-        }while(stat_sum <= max_stat_sum || max_stat_sum - stat_sum > 0 || add_another == 1);
-        players_choise.base_attack_strength = base_attack;
-        players_choise.strong_attack_strength = strong_attack;
-        players_choise.backstub_attack = backstub;
-        players_choise.inteligence = inteligence;
+        }
         if(players_choise.inteligence > 5){
-            players_choise.simple_magic_attack_damage = players_choise.inteligence - 5;
-            players_choise.special_magic_attack_damage =  players_choise.inteligence + 10;
+            simple_magic_attack_damage = inteligence - 5;
+            special_magic_attack_damage =  inteligence + 10;
         }else{
-            players_choise.simple_magic_attack_damage = 0;
-            players_choise.special_magic_attack_damage = players_choise.inteligence;
+            simple_magic_attack_damage = 0;
+            special_magic_attack_damage = inteligence;
         }
-        if(players_choise.archery > 0){
-            players_choise.range = round(30/100 * players_choise.archery);
+        if(archery > 0){
+            range = round(30/100 * players_choise.archery);
         }else{
-            players_choise.range = 0;
+            range = 0;
         }
+        players_choise.models_stats(characters_name, base_attack, strong_attack, backstub, inteligence, simple_magic_attack_damage, special_magic_attack_damage, archery);
     }
     cout << "\nHello there " << characters_name << ". Your character has been created." << endl;
     cout << "\n================Good luck on your jurney!!================" << endl << endl;
